@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FeedItem = ({ item, onDelete, onMarkAsRead }) => (
+const FeedItem = React.memo(({ item, onDelete, onMarkAsRead }) => (
   <div className={`feed-item ${item.isRead ? 'read' : 'unread'}`}>
     <h3>{item.title}</h3>
     <p className="description">{item.description}</p>
@@ -17,6 +17,6 @@ const FeedItem = ({ item, onDelete, onMarkAsRead }) => (
       <button onClick={() => onDelete(item.id)} className="delete-btn">Delete</button>
     </div>
   </div>
-);
+));
 
 export default FeedItem;
