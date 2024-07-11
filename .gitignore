@@ -656,3 +656,8 @@ typings/
 
 # Yarn Integrity file
 .yarn-integrity
+
+# SQLite database files
+*.db
+*.db-shm
+*.db-wal
