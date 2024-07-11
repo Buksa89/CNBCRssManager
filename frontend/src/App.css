@@ -1,0 +1,141 @@
+.App {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.feed-item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+button {
+  margin-right: 10px;
+}
+.feed-item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.feed-item.unread {
+  background-color: #f0f8ff; /* Light blue background for unread items */
+  font-weight: bold;
+}
+
+.feed-item.read {
+  background-color: #f5f5f5; /* Light gray background for read items */
+  color: #666;
+}
+
+button {
+  margin-right: 10px;
+}
+.feed-controls {
+  margin-bottom: 20px;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.loading-message, .no-items-message {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.feed-item {
+  background-color: #ffffff;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.feed-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.feed-item h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.2em;
+}
+
+.feed-item .description {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.feed-item .item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 0.9em;
+}
+
+.feed-item .publish-date {
+  color: #888;
+}
+
+.feed-item .read-more-link {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.feed-item .read-more-link:hover {
+  background-color: #e6f2ff;
+}
+
+.feed-item .item-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.feed-item button {
+  padding: 8px 12px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.feed-item .mark-read-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.feed-item .mark-read-btn:hover {
+  background-color: #45a049;
+}
+
+.feed-item .delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.feed-item .delete-btn:hover {
+  background-color: #da190b;
+}
+
+.feed-item.unread {
+  border-left: 5px solid #4CAF50;
+}
+
+.feed-item.read {
+  opacity: 0.7;
+}
