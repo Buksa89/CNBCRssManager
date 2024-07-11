@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using CNBCRssManager.API.Data;
 using CNBCRssManager.API.Repositories;
 using CNBCRssManager.API.Services;
+using CNBCRssManager.API;
 using Microsoft.AspNetCore.Cors;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,12 +11,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddMemoryCache();
 
 builder.Services.AddDbContext<FeedDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<IFeedRepository, FeedRepository>();
 builder.Services.AddScoped<IRssFeedService, RssFeedService>();
+builder.Services.AddHostedService<RssFeedBackgroundService>();
+
+builder.Services.Configure<RssFeedOptions>(builder.Configuration.GetSection("RssFeedOptions"));
 
 builder.Services.AddCors(options =>
 {
@@ -23,8 +28,8 @@ builder.Services.AddCors(options =>
         builder =>
         {
             builder.WithOrigins("http://localhost:3000")
-                   .AllowAnyMethod()
-                   .AllowAnyHeader();
+                .AllowAnyMethod()
+                .AllowAnyHeader();
         });
 });
 
@@ -38,11 +43,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseCors("AllowReactApp");
-
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

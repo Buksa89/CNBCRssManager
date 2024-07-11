@@ -13,12 +13,12 @@ namespace CNBCRssManager.API.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<FeedItem>> GetAllItemsAsync()
+        public async Task<IEnumerable<FeedItem>?> GetAllItemsAsync()
         {
             return await _context.FeedItems.ToListAsync();
         }
 
-        public async Task<IEnumerable<FeedItem>> GetUnreadItemsAsync()
+        public async Task<IEnumerable<FeedItem>?> GetUnreadItemsAsync()
         {
             return await _context.FeedItems.Where(i => !i.IsRead).ToListAsync();
         }

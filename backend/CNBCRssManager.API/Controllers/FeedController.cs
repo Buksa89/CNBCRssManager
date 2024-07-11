@@ -14,19 +14,18 @@ namespace CNBCRssManager.API.Controllers
         {
             _feedService = feedService;
         }
-
         [HttpGet]
         public async Task<IActionResult> GetAllItems()
         {
             var items = await _feedService.GetAllItemsAsync();
-            return Ok(items);
+            return items != null ? Ok(items) : NotFound();
         }
 
         [HttpGet("unread")]
         public async Task<IActionResult> GetUnreadItems()
         {
             var items = await _feedService.GetUnreadItemsAsync();
-            return Ok(items);
+            return items != null ? Ok(items) : NotFound();
         }
 
         [HttpGet("item/{id}")]

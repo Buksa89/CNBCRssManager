@@ -4,8 +4,8 @@ namespace CNBCRssManager.API.Services
 {
     public interface IRssFeedService
     {
-        Task<IEnumerable<FeedItem>> GetAllItemsAsync();
-        Task<IEnumerable<FeedItem>> GetUnreadItemsAsync();
+        Task<IEnumerable<FeedItem>?> GetAllItemsAsync();
+        Task<IEnumerable<FeedItem>?> GetUnreadItemsAsync();
         Task<FeedItem> GetItemByIdAsync(int id);
         Task RefreshFeedAsync();
         Task MarkAsReadAsync(int id);
