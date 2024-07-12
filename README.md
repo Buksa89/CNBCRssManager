@@ -59,17 +59,23 @@ The application follows a client-server architecture:
    dotnet restore
    ```
 
-3. Build the project:
+3. Migrate the database:
+   ```
+   dotnet ef migrations add InitialCreate
+   dotnet ef database update
+   ```
+
+4. Build the project:
    ```
    dotnet build
    ```
 
-4. Run the application:
+5. Run the application:
    ```
    dotnet run
    ```
 
-The API will be available at `https://localhost:5001` by default.
+The API will be available at `https://localhost:5170` by default.
 
 ### Frontend
 
@@ -105,11 +111,9 @@ The React application will be available at `http://localhost:3000`.
 
 ## TODOs
 
-1. Implement user authentication and authorization
-2. Add unit tests for both frontend and backend
-3. Implement pagination for large numbers of feed items
-4. Add error handling and logging throughout the application
-5. Create a production build process and deployment guide
-6. Implement a more robust caching strategy
-7. Add support for multiple RSS feeds
-8. Improve the UI/UX of the frontend application
+1. Fix npm vulnerabilities
+2. Secure connection with HTTPS
+3. Implement user authentication and authorization
+4. Add unit tests for both frontend and backend
+5. Implement pagination for large numbers of feed items
+6. Set up a separate SQL database
